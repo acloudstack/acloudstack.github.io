@@ -96,11 +96,11 @@
             </div>
 
             <div class="col-md-4 wow fadeInLeft">
-              <h4>AWS Serverless</h4>
-              <a href="https://github.com/acloudstack/serverless-lab/">
-                <img src="assets/img/serverless-lab.png" alt=""/>
+              <h4>Restaurant Web Application</h4>
+              <a href="https://github.com/acloudstack/restaurant-lab/">
+                <img src="assets/img/restaurant.png" alt=""/>
               </a>
-              <p>AWS Serverless</p>
+              <p>Restaurant Web Application</p>
             </div>
 
           </div>
@@ -124,6 +124,24 @@
         </div>
       </div> 
     </section>
+    <script>
+    $.ajax({
+        type: "GET",
+        url: "https://api.github.com/users/acloudstack/repos",
+        dataType: "json",
+        success: function(result) {
+            for(var i in result ) {
+                $("body").append(
+                    "<li><a href='" + result[i].html_url + "' target='_blank'>" +
+                    result[i].name + "</a></li>"
+                );
+                console.log("i: " + i);
+            }
+            console.log(result);
+            $("#repo_count").append("Total Repos: " + result.length);
+        }
+    });
+    </script>
 
     <section id="connect">
       <div class="d-flex flex-column align-items-center mt-3">
